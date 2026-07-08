@@ -1,0 +1,20 @@
+{
+  "expo": {
+    "name": "Reverie",
+    "slug": "reverie",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "backgroundColor": "#faf7f2",
+    "splash": {
+      "backgroundColor": "#faf7f2"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.reverie.game"
+    },
+    "android": {
+      "package": "com.reverie.game"
+    }
+  }
+}
