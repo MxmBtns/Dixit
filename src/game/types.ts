@@ -17,6 +17,9 @@ export type Phase =
 
 export type GameMode = 'classic' | 'blitz';
 
+/** Theme the words/cards are drawn from. Only a couple exist for now. */
+export type WordCategory = 'random' | 'fantasy';
+
 export interface Player {
   id: PlayerId;
   name: string;
@@ -72,6 +75,8 @@ export interface GameSettings {
   handSize: number;
   /** Richttijd per beurt in seconden (alleen weergave, niet afgedwongen in v1). */
   turnSeconds: number;
+  /** Gekozen woordcategorie; 'random' tenzij het spel op één thema staat. */
+  category?: WordCategory;
 }
 
 export interface GameState {

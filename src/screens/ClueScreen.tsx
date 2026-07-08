@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
   flex: { flex: 1 },
   container: {
     padding: theme.spacing(2),
+    paddingTop: theme.spacing(5),
     gap: theme.spacing(2),
     maxWidth: 520,
     width: '100%',

@@ -1,9 +1,16 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 
 import { Button } from '../components/Button';
 import { NewPlayer } from '../game/engine';
-import { BLITZ_SETTINGS, CLASSIC_SETTINGS, GameSettings, MAX_PLAYERS, MIN_PLAYERS } from '../game/types';
+import {
+  BLITZ_SETTINGS,
+  CLASSIC_SETTINGS,
+  GameSettings,
+  MAX_PLAYERS,
+  MIN_PLAYERS,
+  WordCategory,
+} from '../game/types';
 import { AVATARS, t } from '../i18n/nl';
 import { theme } from '../theme';
 
@@ -17,12 +24,16 @@ export function LobbyScreen({ onStart, onBack }: Props) {
   const [names, setNames] = useState<string[]>([]);
   const [draft, setDraft] = useState('');
   const [mode, setMode] = useState<'classic' | 'blitz'>('classic');
+  const [category, setCategory] = useState<WordCategory>('random');
+  const inputRef = useRef<TextInput>(null);
 
   const addPlayer = () => {
     const name = draft.trim();
     if (!name || names.length >= MAX_PLAYERS) return;
     setNames([...names, name]);
     setDraft('');
+    // Keep the cursor in the field so you can keep adding names without clicking back.
+    inputRef.current?.focus();
   };
 
   const removePlayer = (index: number) => {
@@ -35,7 +46,8 @@ export function LobbyScreen({ onStart, onBack }: Props) {
       name,
       avatar: i % AVATARS.length,
     }));
-    onStart(players, mode === 'classic' ? CLASSIC_SETTINGS : BLITZ_SETTINGS);
+    const base = mode === 'classic' ? CLASSIC_SETTINGS : BLITZ_SETTINGS;
+    onStart(players, { ...base, category });
   };
 
   return (
@@ -54,12 +66,14 @@ export function LobbyScreen({ onStart, onBack }: Props) {
       </View>
       <View style={styles.addRow}>
         <TextInput
+          ref={inputRef}
           style={styles.input}
           value={draft}
           onChangeText={setDraft}
           placeholder={t.lobby.namePlaceholder}
           placeholderTextColor={theme.colors.inkSoft}
           onSubmitEditing={addPlayer}
+          blurOnSubmit={false}
           returnKeyType="done"
           maxLength={16}
         />
@@ -84,6 +98,24 @@ export function LobbyScreen({ onStart, onBack }: Props) {
         />
       </View>
 
+      <Text style={styles.heading}>{t.lobby.category}</Text>
+      <Text style={styles.categoryHint}>{t.lobby.categoryHint}</Text>
+      <View style={styles.categories}>
+        <CategoryPill
+          label={`🎲 ${t.lobby.categoryRandom}`}
+          selected={category === 'random'}
+          onPress={() => setCategory('random')}
+        />
+        <CategoryPill
+          label={t.lobby.categoryFantasy}
+          selected={category === 'fantasy'}
+          onPress={() => setCategory('fantasy')}
+        />
+        <View style={styles.pillMuted}>
+          <Text style={styles.pillMutedText}>{t.lobby.categoryMoreSoon}</Text>
+        </View>
+      </View>
+
       <View style={styles.footer}>
         <Button label={t.lobby.start} onPress={start} disabled={names.length < MIN_PLAYERS} />
         <Button label="←" variant="ghost" onPress={onBack} />
@@ -97,6 +129,14 @@ function ModeCard({ label, hint, selected, onPress }: { label: string; hint: str
     <Pressable style={[styles.modeCard, selected && styles.modeCardSelected]} onPress={onPress}>
       <Text style={[styles.modeLabel, selected && styles.modeLabelSelected]}>{label}</Text>
       <Text style={styles.modeHint}>{hint}</Text>
+    </Pressable>
+  );
+}
+
+function CategoryPill({ label, selected, onPress }: { label: string; selected: boolean; onPress: () => void }) {
+  return (
+    <Pressable style={[styles.pill, selected && styles.pillSelected]} onPress={onPress}>
+      <Text style={[styles.pillText, selected && styles.pillTextSelected]}>{label}</Text>
     </Pressable>
   );
 }
@@ -187,6 +227,50 @@ const styles = StyleSheet.create({
   modeHint: {
     fontSize: theme.font.small,
     color: theme.colors.inkSoft,
+  },
+  categoryHint: {
+    fontSize: theme.font.small,
+    color: theme.colors.inkSoft,
+    marginTop: -theme.spacing(0.5),
+  },
+  categories: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: theme.spacing(1),
+    marginTop: theme.spacing(0.5),
+  },
+  pill: {
+    backgroundColor: theme.colors.surface,
+    borderRadius: theme.radius.chip,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+    paddingHorizontal: theme.spacing(2),
+    paddingVertical: theme.spacing(1),
+  },
+  pillSelected: {
+    backgroundColor: theme.colors.accent,
+    borderColor: theme.colors.accent,
+  },
+  pillText: {
+    fontSize: theme.font.body,
+    fontWeight: '600',
+    color: theme.colors.ink,
+  },
+  pillTextSelected: {
+    color: '#ffffff',
+  },
+  pillMuted: {
+    borderRadius: theme.radius.chip,
+    borderWidth: 1,
+    borderStyle: 'dashed',
+    borderColor: theme.colors.border,
+    paddingHorizontal: theme.spacing(2),
+    paddingVertical: theme.spacing(1),
+  },
+  pillMutedText: {
+    fontSize: theme.font.body,
+    color: theme.colors.inkSoft,
+    fontStyle: 'italic',
   },
   footer: {
     marginTop: theme.spacing(2),

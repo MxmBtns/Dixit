@@ -4,6 +4,7 @@ import { Alert, StyleSheet, View } from 'react-native';
 import { GameHeader } from '../components/GameHeader';
 import { GameError, pendingPlayers, reduce } from '../game/engine';
 import { GameAction, GameState } from '../game/types';
+import { t } from '../i18n/nl';
 import { theme } from '../theme';
 import { ClueScreen } from './ClueScreen';
 import { GameOverScreen } from './GameOverScreen';
@@ -41,7 +42,7 @@ export function GameScreen({ initialState, onExit }: Props) {
       setState((s) => reduce(s, action));
     } catch (e) {
       if (e instanceof GameError) {
-        Alert.alert('Oeps', e.message);
+        Alert.alert(t.common.error, e.message);
       } else {
         throw e;
       }
@@ -100,7 +101,7 @@ export function GameScreen({ initialState, onExit }: Props) {
   const showHeader = state.phase !== 'gameOver';
   return (
     <View style={styles.container}>
-      {showHeader && <GameHeader state={state} />}
+      {showHeader && <GameHeader state={state} onExit={onExit} />}
       <View style={styles.body}>{renderPhase()}</View>
     </View>
   );

@@ -39,11 +39,11 @@ export function createGame(
   seed: number = Date.now() & 0xffffffff
 ): GameState {
   if (players.length < MIN_PLAYERS || players.length > MAX_PLAYERS) {
-    throw new GameError(`Aantal spelers moet tussen ${MIN_PLAYERS} en ${MAX_PLAYERS} liggen.`);
+    throw new GameError(`The number of players must be between ${MIN_PLAYERS} and ${MAX_PLAYERS}.`);
   }
   const ids = new Set(players.map((p) => p.id));
   if (ids.size !== players.length) {
-    throw new GameError('Speler-ids moeten uniek zijn.');
+    throw new GameError('Player ids must be unique.');
   }
   const stats: Record<PlayerId, PlayerStats> = {};
   for (const p of players) stats[p.id] = emptyStats();
@@ -68,12 +68,12 @@ function rngForRound(state: GameState, salt: number): () => number {
 
 function getPlayer(state: GameState, id: PlayerId): Player {
   const player = state.players.find((p) => p.id === id);
-  if (!player) throw new GameError('Onbekende speler.');
+  if (!player) throw new GameError('Unknown player.');
   return player;
 }
 
 function requireRound(state: GameState): RoundState {
-  if (!state.roundState) throw new GameError('Er is geen actieve ronde.');
+  if (!state.roundState) throw new GameError('There is no active round.');
   return state.roundState;
 }
 
@@ -86,7 +86,7 @@ function dealNewRound(state: GameState): GameState {
   for (const player of players) {
     while (player.hand.length < state.settings.handSize) {
       const card = deck.pop();
-      if (card === undefined) throw new GameError('De stapel is leeg.');
+      if (card === undefined) throw new GameError('The deck is empty.');
       player.hand.push(card);
     }
   }
@@ -115,7 +115,7 @@ function deckSupportsAnotherRound(state: GameState): boolean {
 function finishRound(state: GameState): GameState {
   const round = requireRound(state);
   if (round.clue === null || round.storytellerCardId === null) {
-    throw new GameError('Ronde is niet compleet.');
+    throw new GameError('The round is not complete.');
   }
   const points = scoreRound({
     storytellerId: round.storytellerId,
@@ -172,7 +172,7 @@ function withWinners(state: GameState): GameState {
 export function reduce(state: GameState, action: GameAction): GameState {
   switch (action.type) {
     case 'START_GAME': {
-      if (state.phase !== 'lobby') throw new GameError('Het spel is al gestart.');
+      if (state.phase !== 'lobby') throw new GameError('The game has already started.');
       const rand = mulberry32(state.seed);
       const deck = shuffle(createDeck(), rand);
       const storytellerOrder = shuffle(
@@ -183,16 +183,16 @@ export function reduce(state: GameState, action: GameAction): GameState {
     }
 
     case 'SUBMIT_CLUE': {
-      if (state.phase !== 'storytellerClue') throw new GameError('Nu is er geen hint nodig.');
+      if (state.phase !== 'storytellerClue') throw new GameError('No hint is needed right now.');
       const round = requireRound(state);
       if (action.playerId !== round.storytellerId) {
-        throw new GameError('Alleen de verteller geeft een hint.');
+        throw new GameError('Only the storyteller gives a hint.');
       }
       const clue = action.clue.trim();
-      if (clue.length === 0) throw new GameError('De hint mag niet leeg zijn.');
+      if (clue.length === 0) throw new GameError('The hint cannot be empty.');
       const player = getPlayer(state, action.playerId);
       if (!player.hand.includes(action.cardId)) {
-        throw new GameError('Die kaart zit niet in je hand.');
+        throw new GameError('That card is not in your hand.');
       }
       return {
         ...state,
@@ -210,17 +210,17 @@ export function reduce(state: GameState, action: GameAction): GameState {
     }
 
     case 'SUBMIT_CARD': {
-      if (state.phase !== 'playersSubmit') throw new GameError('Nu kan er geen kaart gekozen worden.');
+      if (state.phase !== 'playersSubmit') throw new GameError('You can’t pick a card right now.');
       const round = requireRound(state);
       if (action.playerId === round.storytellerId) {
-        throw new GameError('De verteller heeft zijn kaart al gekozen.');
+        throw new GameError('The storyteller has already played their card.');
       }
       if (round.submissions[action.playerId]) {
-        throw new GameError('Je hebt al een kaart gekozen.');
+        throw new GameError('You have already picked a card.');
       }
       const player = getPlayer(state, action.playerId);
       if (!player.hand.includes(action.cardId)) {
-        throw new GameError('Die kaart zit niet in je hand.');
+        throw new GameError('That card is not in your hand.');
       }
       const submissions = { ...round.submissions, [action.playerId]: action.cardId };
       const players = state.players.map((p) =>
@@ -241,17 +241,17 @@ export function reduce(state: GameState, action: GameAction): GameState {
     }
 
     case 'CAST_VOTE': {
-      if (state.phase !== 'voting') throw new GameError('Nu kan er niet gestemd worden.');
+      if (state.phase !== 'voting') throw new GameError('You can’t vote right now.');
       const round = requireRound(state);
       if (action.playerId === round.storytellerId) {
-        throw new GameError('De verteller stemt niet mee.');
+        throw new GameError('The storyteller does not vote.');
       }
-      if (round.votes[action.playerId]) throw new GameError('Je hebt al gestemd.');
+      if (round.votes[action.playerId]) throw new GameError('You have already voted.');
       if (!round.table.includes(action.cardId)) {
-        throw new GameError('Die kaart ligt niet op tafel.');
+        throw new GameError('That card is not on the table.');
       }
       if (round.submissions[action.playerId] === action.cardId) {
-        throw new GameError('Je kan niet op je eigen kaart stemmen.');
+        throw new GameError('You can’t vote for your own card.');
       }
       getPlayer(state, action.playerId);
       const votes = { ...round.votes, [action.playerId]: action.cardId };
@@ -261,14 +261,14 @@ export function reduce(state: GameState, action: GameAction): GameState {
     }
 
     case 'NEXT_ROUND': {
-      if (state.phase !== 'reveal') throw new GameError('De ronde is nog bezig.');
+      if (state.phase !== 'reveal') throw new GameError('The round is still in progress.');
       const cleared = { ...state, roundState: null };
       return isGameOver(cleared) ? withWinners(cleared) : dealNewRound(cleared);
     }
 
     default: {
       const exhaustive: never = action;
-      throw new GameError(`Onbekende actie: ${JSON.stringify(exhaustive)}`);
+      throw new GameError(`Unknown action: ${JSON.stringify(exhaustive)}`);
     }
   }
 }

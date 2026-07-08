@@ -33,6 +33,7 @@ export function SubmitScreen({ player, clue, onSubmit }: Props) {
 const styles = StyleSheet.create({
   container: {
     padding: theme.spacing(2),
+    paddingTop: theme.spacing(5),
     gap: theme.spacing(2),
     maxWidth: 520,
     width: '100%',

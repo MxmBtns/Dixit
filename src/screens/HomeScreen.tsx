@@ -1,56 +1,56 @@
 import React from 'react';
-import { Alert, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { CardView } from '../components/CardView';
 import { Button } from '../components/Button';
+import { NightSky } from '../components/NightSky';
 import { t } from '../i18n/nl';
-import { isFirebaseConfigured } from '../multiplayer/firebaseConfig';
 import { theme } from '../theme';
 
 interface Props {
   onPassAndPlay: () => void;
+  onHostRoom: () => void;
+  onJoinRoom: () => void;
+  onHowToPlay: () => void;
 }
 
-export function HomeScreen({ onPassAndPlay }: Props) {
+export function HomeScreen({ onPassAndPlay, onHostRoom, onJoinRoom, onHowToPlay }: Props) {
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <View style={styles.fan}>
+    <View style={styles.root}>
+      <NightSky />
+      <ScrollView contentContainerStyle={styles.container}>
+        <View style={styles.fan}>
         <View style={{ transform: [{ rotate: '-9deg' }, { translateY: 10 }] }}>
-          <CardView cardId="card-07" width={92} />
+          <CardView cardId="card-02" width={92} />
         </View>
         <View style={{ zIndex: 2 }}>
-          <CardView cardId="card-23" width={104} />
+          <CardView cardId="card-01" width={104} />
         </View>
         <View style={{ transform: [{ rotate: '9deg' }, { translateY: 10 }] }}>
-          <CardView cardId="card-58" width={92} />
+          <CardView cardId="card-05" width={92} />
         </View>
       </View>
 
       <Text style={styles.title}>{t.appName}</Text>
       <Text style={styles.tagline}>{t.tagline}</Text>
+      <Text style={styles.subTagline}>{t.subTagline}</Text>
 
-      <View style={styles.actions}>
-        <Button label={t.home.passAndPlay} onPress={onPassAndPlay} />
-        <Button
-          label={t.home.online}
-          variant="ghost"
-          onPress={() => {
-            if (!isFirebaseConfigured()) {
-              Alert.alert(t.home.online, t.home.onlineSoon);
-            }
-          }}
-        />
-      </View>
-
-      <View style={styles.rules}>
-        <Text style={styles.rulesTitle}>{t.home.howToPlay}</Text>
-        <Text style={styles.rulesText}>{t.home.rules}</Text>
-      </View>
-    </ScrollView>
+        <View style={styles.actions}>
+          <Button label={t.home.passAndPlay} onPress={onPassAndPlay} />
+          <Button label={t.home.hostRoom} variant="ghostLight" onPress={onHostRoom} />
+          <Button label={t.home.joinRoom} variant="ghostLight" onPress={onJoinRoom} />
+          <Button label={t.home.howToPlay} variant="ghostLight" onPress={onHowToPlay} />
+        </View>
+      </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+    backgroundColor: '#140a2e',
+  },
   container: {
     flexGrow: 1,
     alignItems: 'center',
@@ -66,38 +66,26 @@ const styles = StyleSheet.create({
   title: {
     fontSize: theme.font.title + 8,
     fontWeight: '700',
-    color: theme.colors.ink,
+    color: '#f7f3ff',
     letterSpacing: 2,
+    textShadowColor: 'rgba(0, 0, 0, 0.35)',
+    textShadowOffset: { width: 0, height: 2 },
+    textShadowRadius: 8,
   },
   tagline: {
     fontSize: theme.font.body,
-    color: theme.colors.inkSoft,
+    color: 'rgba(247, 243, 255, 0.82)',
+  },
+  subTagline: {
+    fontSize: theme.font.small + 1,
+    color: '#c4b3f0',
+    fontStyle: 'italic',
     marginBottom: theme.spacing(3),
   },
   actions: {
-    alignSelf: 'stretch',
-    maxWidth: 420,
-    width: '100%',
+    alignSelf: 'center',
+    width: 420,
+    maxWidth: '100%',
     gap: theme.spacing(1.5),
-    marginBottom: theme.spacing(3),
-  },
-  rules: {
-    maxWidth: 420,
-    backgroundColor: theme.colors.surface,
-    borderRadius: theme.radius.card,
-    borderWidth: 1,
-    borderColor: theme.colors.border,
-    padding: theme.spacing(2),
-    gap: theme.spacing(0.75),
-  },
-  rulesTitle: {
-    fontSize: theme.font.body,
-    fontWeight: '700',
-    color: theme.colors.ink,
-  },
-  rulesText: {
-    fontSize: theme.font.small + 1,
-    lineHeight: 20,
-    color: theme.colors.inkSoft,
   },
 });

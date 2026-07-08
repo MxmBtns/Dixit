@@ -60,8 +60,8 @@ const styles = StyleSheet.create({
   },
   button: {
     marginTop: theme.spacing(2),
-    alignSelf: 'stretch',
-    maxWidth: 360,
-    width: '100%',
+    alignSelf: 'center',
+    width: 360,
+    maxWidth: '100%',
   },
 });

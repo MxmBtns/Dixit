@@ -40,6 +40,7 @@ export function VotingScreen({ player, round, onVote }: Props) {
 const styles = StyleSheet.create({
   container: {
     padding: theme.spacing(2),
+    paddingTop: theme.spacing(5),
     gap: theme.spacing(1.5),
     maxWidth: 520,
     width: '100%',

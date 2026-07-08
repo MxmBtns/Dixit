@@ -1,7 +1,8 @@
 import React from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { CardArt, CARD_H, CARD_W } from '../art/CardArt';
+import { cardImage } from '../art/cardImages';
 import { theme } from '../theme';
 
 interface Props {
@@ -16,6 +17,8 @@ interface Props {
 /** Eén speelkaart: artwork in een afgerond kader, optioneel selecteerbaar. */
 export function CardView({ cardId, width, selected, disabled, badge, onPress }: Props) {
   const height = (width * CARD_H) / CARD_W;
+  const innerWidth = width - 6;
+  const image = cardImage(cardId);
   return (
     <Pressable
       onPress={onPress ? () => onPress(cardId) : undefined}
@@ -28,7 +31,15 @@ export function CardView({ cardId, width, selected, disabled, badge, onPress }: 
         pressed && onPress && styles.pressed,
       ]}
     >
-      <CardArt cardId={cardId} width={width - 6} />
+      {image ? (
+        <Image
+          source={image}
+          style={{ width: innerWidth, height: (innerWidth * CARD_H) / CARD_W }}
+          resizeMode="cover"
+        />
+      ) : (
+        <CardArt cardId={cardId} width={innerWidth} />
+      )}
       {badge !== undefined && (
         <View style={styles.badge}>
           <Text style={styles.badgeText}>{badge}</Text>
