@@ -15,7 +15,9 @@ interface Props {
 /** Kaarten in een rustig raster van twee of drie kolommen. */
 export function CardGrid({ cardIds, selectedId, disabledIds, badges, onSelect }: Props) {
   const { width } = useWindowDimensions();
-  const columns = cardIds.length > 4 ? 3 : 2;
+  // Two roomy columns for a normal hand (up to 6 cards); three only when the
+  // table gets crowded (e.g. voting with many players), so cards stay legible.
+  const columns = cardIds.length > 6 ? 3 : 2;
   const gap = theme.spacing(1.5);
   const cardWidth = (Math.min(width, 520) - theme.spacing(4) - gap * (columns - 1)) / columns;
 

@@ -106,7 +106,7 @@ export type GameAction =
 export const CLASSIC_SETTINGS: GameSettings = {
   mode: 'classic',
   targetScore: 30,
-  maxRounds: 10,
+  maxRounds: 5,
   handSize: 6,
   turnSeconds: 60,
 };

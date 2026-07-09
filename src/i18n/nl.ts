@@ -81,7 +81,7 @@ export const t = {
     mode: 'Game mode',
     modeClassic: 'Classic',
     modeBlitz: 'Blitz',
-    modeClassicHint: 'Up to 30 points or 10 rounds',
+    modeClassicHint: 'Up to 30 points or 5 rounds',
     modeBlitzHint: 'Shorter and faster',
     category: 'Word category',
     categoryHint: 'Keep it random across everything, or lock the game to one theme.',
