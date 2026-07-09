@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nuvora — Premium gepersonaliseerde notenpotjes</title>
+<meta name="description" content="Exclusieve notenpotjes met jouw eigen logo. Een uniek relatiegeschenk voor bedrijven, evenementen en bijzondere momenten.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   NUVORA — Premium brand experience
+   Palette: deep black / gold / beige-cream
+   ============================================================ */
+:root{
+  --black:#0a0908;
+  --black-soft:#12100e;
+  --black-card:#171411;
+  --black-line:#2a251f;
+  --gold:#c9a227;
+  --gold-light:#e6c766;
+  --gold-deep:#9c7c1c;
+  --beige:#f0e6d2;
+  --beige-soft:#e7dac0;
+  --cream:#faf5ea;
+  --text:#d9d2c5;
+  --text-dim:#9a917f;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Jost','Helvetica Neue',Arial,sans-serif;
+  --gold-grad:linear-gradient(105deg,#9c7c1c 0%,#c9a227 25%,#f2dd8e 50%,#c9a227 75%,#9c7c1c 100%);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{
+  background:var(--black);
+  color:var(--text);
+  font-family:var(--sans);
+  font-weight:300;
+  line-height:1.7;
+  letter-spacing:.02em;
+  overflow-x:hidden;
+}
+img,svg{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--gold);color:var(--black)}
+
+h1,h2,h3{font-family:var(--serif);font-weight:500;color:var(--cream);line-height:1.15}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:.9rem;
+  font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;
+  color:var(--gold);font-weight:400;margin-bottom:1.4rem;
+}
+.eyebrow::before,.eyebrow.center::after{content:"";width:2.6rem;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.eyebrow.center::after{background:linear-gradient(90deg,var(--gold),transparent)}
+
+.gold-text{
+  background:var(--gold-grad);
+  background-size:200% auto;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+  animation:shine 6s linear infinite;
+}
+@keyframes shine{to{background-position:200% center}}
+
+.container{width:min(1180px,92%);margin:0 auto}
+section{padding:7.5rem 0;position:relative}
+
+/* ---------- ornament divider ---------- */
+.divider{display:flex;align-items:center;justify-content:center;gap:1.1rem;padding:0}
+.divider span{width:min(180px,26vw);height:1px;background:linear-gradient(90deg,transparent,var(--gold-deep))}
+.divider span:last-child{background:linear-gradient(90deg,var(--gold-deep),transparent)}
+.divider i{color:var(--gold);font-style:normal;font-size:.8rem;letter-spacing:0}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-block;font-family:var(--sans);font-size:.78rem;font-weight:500;
+  letter-spacing:.28em;text-transform:uppercase;cursor:pointer;
+  padding:1.05rem 2.6rem;transition:all .45s cubic-bezier(.22,.61,.36,1);
+  border:1px solid transparent;text-align:center;
+}
+.btn-gold{
+  background:var(--gold-grad);background-size:200% auto;color:#1a1509;
+  box-shadow:0 0 0 rgba(201,162,39,0);
+}
+.btn-gold:hover{background-position:right center;box-shadow:0 8px 34px rgba(201,162,39,.35);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--gold);border-color:var(--gold-deep)}
+.btn-outline:hover{border-color:var(--gold-light);color:var(--gold-light);box-shadow:inset 0 0 24px rgba(201,162,39,.12);transform:translateY(-2px)}
+
+/* ---------- reveal on scroll ---------- */
+.reveal{opacity:0;transform:translateY(36px);transition:opacity 1s ease,transform 1s cubic-bezier(.22,.61,.36,1)}
+.reveal.visible{opacity:1;transform:none}
+.reveal.d1{transition-delay:.15s}.reveal.d2{transition-delay:.3s}.reveal.d3{transition-delay:.45s}
+
+/* ============================================================ NAV */
+header{
+  position:fixed;inset:0 0 auto 0;z-index:100;
+  padding:1.3rem 0;transition:background .5s,padding .5s,box-shadow .5s;
+}
+header.scrolled{
+  background:rgba(10,9,8,.92);backdrop-filter:blur(14px);
+  padding:.8rem 0;box-shadow:0 1px 0 rgba(201,162,39,.22);
+}
+.nav{display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--serif);font-size:1.7rem;letter-spacing:.34em;font-weight:600}
+.logo em{font-style:normal}
+.logo small{display:block;font-family:var(--sans);font-size:.52rem;letter-spacing:.52em;color:var(--text-dim);font-weight:400;margin-top:-2px}
+nav ul{display:flex;gap:2.4rem;list-style:none;align-items:center}
+nav a{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--text);position:relative;padding:.3rem 0}
+nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:width .4s}
+nav a:hover{color:var(--gold-light)}
+nav a:hover::after{width:100%}
+.nav-cta{border:1px solid var(--gold-deep);padding:.55rem 1.4rem!important;color:var(--gold)!important}
+.nav-cta::after{display:none}
+.nav-cta:hover{background:rgba(201,162,39,.1)}
+.burger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px}
+.burger span{width:26px;height:1.5px;background:var(--gold);transition:.35s}
+@media(max-width:920px){
+  .burger{display:flex}
+  nav ul{
+    position:fixed;inset:0;background:rgba(10,9,8,.97);backdrop-filter:blur(20px);
+    flex-direction:column;justify-content:center;gap:2.2rem;
+    transform:translateX(100%);transition:transform .5s cubic-bezier(.22,.61,.36,1);
+  }
+  nav ul.open{transform:none}
+  nav a{font-size:1rem}
+  .burger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+  .burger.open span:nth-child(2){opacity:0}
+  .burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+  .burger{position:relative;z-index:110}
+}
+
+/* ============================================================ HERO */
+.hero{
+  min-height:100vh;display:flex;align-items:center;padding:9rem 0 5rem;
+  background:
+    radial-gradient(ellipse 60% 45% at 72% 42%,rgba(201,162,39,.14),transparent 65%),
+    radial-gradient(ellipse 80% 70% at 50% 110%,rgba(35,28,16,.9),transparent),
+    var(--black);
+}
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Ccircle cx='1' cy='1' r='.6' fill='%23c9a227' fill-opacity='.10'/%3E%3C/svg%3E");
+}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:4rem;align-items:center}
+.hero h1{font-size:clamp(2.6rem,5.2vw,4.6rem);margin-bottom:1.6rem}
+.hero h1 .line{display:block}
+.hero p.sub{font-size:1.06rem;color:var(--text-dim);max-width:34rem;margin-bottom:2.6rem;font-weight:300}
+.hero-btns{display:flex;gap:1.2rem;flex-wrap:wrap}
+.hero-jar{position:relative;display:flex;justify-content:center}
+.hero-jar .glow{
+  position:absolute;inset:12% 8%;border-radius:50%;
+  background:radial-gradient(circle,rgba(201,162,39,.22),transparent 68%);
+  filter:blur(30px);animation:pulse 5s ease-in-out infinite;
+}
+@keyframes pulse{50%{opacity:.55;transform:scale(1.06)}}
+.hero-jar svg{width:min(390px,72vw);position:relative;filter:drop-shadow(0 42px 60px rgba(0,0,0,.75));animation:floaty 7s ease-in-out infinite}
+@keyframes floaty{50%{transform:translateY(-14px)}}
+.hero-ring{
+  position:absolute;top:50%;left:50%;width:118%;aspect-ratio:1;transform:translate(-50%,-50%);
+  border:1px solid rgba(201,162,39,.16);border-radius:50%;
+}
+.hero-ring::after{
+  content:"";position:absolute;top:7%;left:14%;width:7px;height:7px;border-radius:50%;
+  background:var(--gold);box-shadow:0 0 14px var(--gold);
+}
+.scroll-hint{
+  position:absolute;bottom:2.2rem;left:50%;transform:translateX(-50%);
+  font-size:.62rem;letter-spacing:.4em;text-transform:uppercase;color:var(--text-dim);
+  display:flex;flex-direction:column;align-items:center;gap:.7rem;
+}
+.scroll-hint::after{content:"";width:1px;height:44px;background:linear-gradient(var(--gold),transparent);animation:drip 2.2s ease-in-out infinite}
+@keyframes drip{50%{opacity:.25}}
+@media(max-width:920px){
+  .hero-grid{grid-template-columns:1fr;text-align:center}
+  .hero p.sub{margin:0 auto 2.4rem}
+  .hero-btns{justify-content:center}
+  .hero .eyebrow{justify-content:center}
+  .hero-jar{order:-1;margin-top:1rem}
+  .hero-jar svg{width:min(280px,64vw)}
+  .hero-ring{width:min(118%,92vw)}
+}
+
+/* ============================================================ CONCEPT */
+.section-head{text-align:center;max-width:46rem;margin:0 auto 4.5rem}
+.section-head h2{font-size:clamp(2rem,3.6vw,3.1rem);margin-bottom:1.3rem}
+.section-head p{color:var(--text-dim);font-size:1.02rem}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;counter-reset:step}
+.step{
+  background:linear-gradient(160deg,var(--black-card),var(--black-soft));
+  border:1px solid var(--black-line);padding:3rem 2.3rem 2.6rem;position:relative;
+  transition:transform .5s,border-color .5s,box-shadow .5s;
+}
+.step::before{
+  counter-increment:step;content:"0" counter(step);
+  font-family:var(--serif);font-size:3.6rem;line-height:1;
+  background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;display:block;margin-bottom:1.4rem;opacity:.9;
+}
+.step::after{content:"";position:absolute;top:0;left:0;width:0;height:2px;background:var(--gold-grad);transition:width .6s}
+.step:hover{transform:translateY(-8px);border-color:rgba(201,162,39,.4);box-shadow:0 26px 50px rgba(0,0,0,.5)}
+.step:hover::after{width:100%}
+.step h3{font-size:1.45rem;margin-bottom:.8rem}
+.step p{font-size:.92rem;color:var(--text-dim)}
+@media(max-width:920px){.steps{grid-template-columns:1fr;max-width:30rem;margin:0 auto}}
+
+/* ============================================================ PRODUCT */
+.product{background:linear-gradient(180deg,var(--black) 0%,#0e0c0a 50%,var(--black) 100%)}
+.product-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:5rem;align-items:center}
+.product-visual{position:relative;display:flex;justify-content:center;padding:3rem 0}
+.product-visual .pedestal{
+  position:absolute;bottom:6%;left:50%;transform:translateX(-50%);
+  width:78%;height:22px;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(201,162,39,.25),transparent 70%);filter:blur(6px);
+}
+.product-visual svg{width:min(330px,70vw);filter:drop-shadow(0 34px 46px rgba(0,0,0,.7))}
+.product-info .price-tag{font-family:var(--serif);font-size:1.9rem;color:var(--cream);margin:.4rem 0 1.6rem}
+.product-info h3{font-size:2rem;margin-bottom:.6rem}
+.nut-list{display:flex;flex-wrap:wrap;gap:.6rem;margin:1.4rem 0 2rem}
+.nut-list li{
+  list-style:none;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;
+  border:1px solid var(--black-line);padding:.45rem 1.05rem;color:var(--beige-soft);
+  background:rgba(240,230,210,.03);transition:.35s;
+}
+.nut-list li:hover{border-color:var(--gold-deep);color:var(--gold-light)}
+.features{display:grid;gap:1rem;margin-top:.6rem}
+.features li{list-style:none;display:flex;gap:1rem;align-items:center;font-size:.95rem}
+.features .tick{
+  flex:none;width:30px;height:30px;border:1px solid var(--gold-deep);border-radius:50%;
+  display:grid;place-items:center;color:var(--gold);font-size:.75rem;
+  background:radial-gradient(circle at 35% 30%,rgba(201,162,39,.22),transparent 70%);
+}
+@media(max-width:920px){.product-grid{grid-template-columns:1fr;gap:2.5rem}}
+
+/* ============================================================ PERSONALISATIE */
+.perso{background:var(--black)}
+.perso::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 55% 42% at 28% 50%,rgba(201,162,39,.08),transparent 70%);
+}
+.perso-grid{display:grid;grid-template-columns:1fr 1fr;gap:4.5rem;align-items:center}
+.perso-copy h2{font-size:clamp(2rem,3.4vw,2.9rem);margin-bottom:1.3rem}
+.perso-copy p{color:var(--text-dim);margin-bottom:2rem}
+.perso-points{display:grid;gap:1.1rem;margin-bottom:2.4rem}
+.perso-points li{list-style:none;display:flex;gap:.9rem;align-items:baseline;font-size:.95rem;color:var(--beige-soft)}
+.perso-points li::before{content:"◆";color:var(--gold);font-size:.6rem}
+.configurator{
+  background:linear-gradient(165deg,var(--black-card),#0d0b09);
+  border:1px solid var(--black-line);padding:2.6rem;position:relative;
+}
+.configurator::before{
+  content:"";position:absolute;inset:10px;border:1px solid rgba(201,162,39,.18);pointer-events:none;
+}
+.configurator h3{font-size:1.3rem;margin-bottom:1.6rem;display:flex;align-items:center;gap:.8rem}
+.configurator h3::before{content:"✦";color:var(--gold);font-size:.9rem}
+.config-preview{display:flex;justify-content:center;margin-bottom:2rem}
+.config-preview svg{width:min(230px,60vw);filter:drop-shadow(0 22px 30px rgba(0,0,0,.65));transition:.4s}
+.config-row{margin-bottom:1.5rem}
+.config-label{font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--text-dim);display:block;margin-bottom:.7rem}
+.chip-row{display:flex;gap:.6rem;flex-wrap:wrap}
+.chip{
+  font-family:var(--sans);font-size:.74rem;letter-spacing:.12em;cursor:pointer;
+  border:1px solid var(--black-line);background:transparent;color:var(--text);
+  padding:.55rem 1.15rem;transition:.3s;
+}
+.chip:hover{border-color:var(--gold-deep)}
+.chip.active{border-color:var(--gold);color:var(--gold-light);background:rgba(201,162,39,.1)}
+.upload-zone{
+  border:1px dashed var(--gold-deep);padding:1.1rem;text-align:center;cursor:pointer;
+  font-size:.8rem;color:var(--text-dim);transition:.3s;
+}
+.upload-zone:hover{background:rgba(201,162,39,.06);color:var(--gold-light)}
+.upload-zone input{display:none}
+@media(max-width:920px){.perso-grid{grid-template-columns:1fr;gap:3rem}}
+
+/* ============================================================ B2B / EVENTS */
+.b2b{background:linear-gradient(180deg,var(--black),#0f0d0a)}
+.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+.lux-card{
+  border:1px solid var(--black-line);background:var(--black-card);
+  padding:2.6rem 2.1rem;transition:.5s;position:relative;overflow:hidden;
+}
+.lux-card::before{
+  content:"";position:absolute;top:-60%;left:-60%;width:70%;height:220%;
+  background:linear-gradient(100deg,transparent,rgba(230,199,102,.07),transparent);
+  transform:rotate(18deg);transition:left .8s ease;
+}
+.lux-card:hover::before{left:130%}
+.lux-card:hover{border-color:rgba(201,162,39,.45);transform:translateY(-6px)}
+.lux-card .icon{width:46px;height:46px;margin-bottom:1.4rem;color:var(--gold)}
+.lux-card h3{font-size:1.35rem;margin-bottom:.7rem}
+.lux-card p{font-size:.9rem;color:var(--text-dim)}
+.quote-band{
+  margin-top:4.5rem;text-align:center;border:1px solid rgba(201,162,39,.3);
+  background:
+    radial-gradient(ellipse 70% 120% at 50% 130%,rgba(201,162,39,.12),transparent),
+    var(--black-soft);
+  padding:3.6rem 2rem;
+}
+.quote-band p{font-family:var(--serif);font-size:clamp(1.35rem,2.6vw,1.9rem);color:var(--cream);font-style:italic;max-width:44rem;margin:0 auto}
+@media(max-width:920px){.card-grid{grid-template-columns:1fr;max-width:28rem;margin:0 auto}}
+
+/* events tags */
+.event-tags{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;margin-top:2.6rem}
+.event-tags span{
+  border:1px solid var(--gold-deep);color:var(--beige);font-size:.76rem;
+  letter-spacing:.2em;text-transform:uppercase;padding:.65rem 1.5rem;transition:.35s;
+}
+.event-tags span:hover{background:rgba(201,162,39,.12);color:var(--gold-light)}
+
+/* ============================================================ PACKAGING */
+.packaging-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:4.5rem;align-items:center}
+.pack-visual{position:relative;display:flex;justify-content:center;padding:2rem 0}
+.pack-visual svg{width:min(430px,80vw);filter:drop-shadow(0 34px 48px rgba(0,0,0,.7))}
+.pack-list{display:grid;gap:1.5rem;margin-top:2rem}
+.pack-list li{list-style:none;padding-left:1.8rem;position:relative;font-size:.95rem;color:var(--beige-soft)}
+.pack-list li::before{content:"—";position:absolute;left:0;color:var(--gold)}
+.pack-list li strong{display:block;font-family:var(--serif);font-size:1.15rem;color:var(--cream);font-weight:500;letter-spacing:.03em}
+@media(max-width:920px){.packaging-grid{grid-template-columns:1fr;gap:2.5rem}}
+
+/* ============================================================ SUSTAINABILITY (beige) */
+.sustain{background:linear-gradient(160deg,var(--beige) 0%,var(--cream) 60%,var(--beige-soft) 100%);color:#4a3f2c}
+.sustain h2{color:#231c10}
+.sustain .eyebrow{color:var(--gold-deep)}
+.sustain .section-head p{color:#6d6047}
+.sustain-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.6rem}
+.sustain-card{
+  background:rgba(255,255,255,.5);border:1px solid rgba(156,124,28,.25);
+  padding:2.4rem 1.8rem;text-align:center;transition:.45s;
+}
+.sustain-card:hover{transform:translateY(-6px);box-shadow:0 22px 40px rgba(120,95,40,.18);border-color:var(--gold-deep)}
+.sustain-card .icon{width:44px;height:44px;margin:0 auto 1.2rem;color:var(--gold-deep)}
+.sustain-card h3{color:#231c10;font-size:1.2rem;margin-bottom:.6rem}
+.sustain-card p{font-size:.84rem;color:#6d6047}
+@media(max-width:920px){.sustain-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.sustain-grid{grid-template-columns:1fr}}
+
+/* ============================================================ ABOUT */
+.about{text-align:center}
+.about .story{
+  font-family:var(--serif);font-size:clamp(1.25rem,2.4vw,1.7rem);font-style:italic;
+  color:var(--beige);max-width:48rem;margin:0 auto;line-height:1.8;
+}
+.about .story::before,.about .story::after{
+  content:"”";font-size:3rem;color:var(--gold);display:block;line-height:.4;
+}
+.about .story::before{content:"“";margin-bottom:1.6rem}
+.about .story::after{margin-top:2rem}
+
+/* ============================================================ ORDER / CONFIGURATOR PAGE */
+.order{background:linear-gradient(180deg,#0e0c0a,var(--black))}
+.order-panel{
+  display:grid;grid-template-columns:1fr 1fr;gap:0;
+  border:1px solid rgba(201,162,39,.28);background:var(--black-card);
+}
+.order-left{padding:3rem;border-right:1px solid var(--black-line);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;
+  background:radial-gradient(ellipse 70% 55% at 50% 40%,rgba(201,162,39,.09),transparent 70%)}
+.order-left svg{width:min(260px,60vw);filter:drop-shadow(0 26px 36px rgba(0,0,0,.7));transition:.4s}
+.order-summary{width:100%;border-top:1px solid var(--black-line);padding-top:1.6rem;font-size:.85rem}
+.order-summary .row{display:flex;justify-content:space-between;padding:.35rem 0;color:var(--text-dim)}
+.order-summary .row b{color:var(--beige);font-weight:400}
+.order-right{padding:3rem}
+.order-right h3{font-size:1.7rem;margin-bottom:2rem}
+.field{margin-bottom:1.6rem}
+.field input[type=text],.field input[type=email],.field textarea,.field select{
+  width:100%;background:var(--black-soft);border:1px solid var(--black-line);
+  color:var(--cream);font-family:var(--sans);font-size:.9rem;padding:.85rem 1rem;
+  transition:border .3s;outline:none;
+}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--gold)}
+.qty-row{display:flex;gap:.6rem;flex-wrap:wrap}
+.form-note{font-size:.74rem;color:var(--text-dim);margin-top:1rem}
+.form-success{
+  display:none;border:1px solid var(--gold);padding:1.2rem 1.5rem;margin-top:1.4rem;
+  color:var(--gold-light);font-size:.9rem;background:rgba(201,162,39,.07);
+}
+.form-success.show{display:block}
+@media(max-width:920px){
+  .order-panel{grid-template-columns:1fr}
+  .order-left{border-right:none;border-bottom:1px solid var(--black-line)}
+  .order-left,.order-right{padding:2.2rem 1.6rem}
+}
+
+/* ============================================================ FOOTER */
+footer{border-top:1px solid rgba(201,162,39,.25);padding:4.5rem 0 2.4rem;background:#080706}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2.6rem;margin-bottom:3.2rem}
+.foot-grid h4{font-family:var(--sans);font-size:.7rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;font-weight:500}
+.foot-grid ul{list-style:none;display:grid;gap:.65rem}
+.foot-grid a{font-size:.85rem;color:var(--text-dim);transition:.3s}
+.foot-grid a:hover{color:var(--gold-light)}
+.foot-brand p{font-size:.85rem;color:var(--text-dim);max-width:20rem;margin-top:1rem}
+.foot-bottom{
+  border-top:1px solid var(--black-line);padding-top:1.8rem;display:flex;
+  justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  font-size:.72rem;letter-spacing:.14em;color:var(--text-dim);
+}
+@media(max-width:920px){.foot-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<!-- ============================ NAV ============================ -->
+<header id="header">
+  <div class="container nav">
+    <a href="#top" class="logo"><span class="gold-text">NUVORA</span><small>PREMIUM NUTS</small></a>
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav>
+      <ul id="navlist">
+        <li><a href="#concept">Concept</a></li>
+        <li><a href="#product">Product</a></li>
+        <li><a href="#personalisatie">Personalisatie</a></li>
+        <li><a href="#bedrijven">Bedrijven</a></li>
+        <li><a href="#evenementen">Evenementen</a></li>
+        <li><a href="#overons">Over ons</a></li>
+        <li><a href="#bestellen" class="nav-cta">Offerte</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ============================ HERO ============================ -->
+<section class="hero" id="top">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow reveal">Exclusieve relatiegeschenken</span>
+      <h1 class="reveal d1">
+        <span class="line">Premium taste.</span>
+        <span class="line gold-text">Your brand.</span>
+        <span class="line">Your story.</span>
+      </h1>
+      <p class="sub reveal d2">Exclusieve notenpotjes met jouw eigen logo. Een uniek relatiegeschenk voor bedrijven, evenementen en bijzondere momenten.</p>
+      <div class="hero-btns reveal d3">
+        <a href="#bestellen" class="btn btn-gold">Ontwerp jouw potje</a>
+        <a href="#bestellen" class="btn btn-outline">Vraag een offerte aan</a>
+      </div>
+    </div>
+    <div class="hero-jar reveal d2">
+      <div class="hero-ring"></div>
+      <div class="glow"></div>
+      <!-- Hero jar render -->
+      <svg viewBox="0 0 300 400" aria-label="Luxe glazen notenpotje met gouden logo">
+        <defs>
+          <linearGradient id="glassG" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#ffffff" stop-opacity=".10"/>
+            <stop offset=".22" stop-color="#ffffff" stop-opacity=".30"/>
+            <stop offset=".5" stop-color="#ffffff" stop-opacity=".05"/>
+            <stop offset=".8" stop-color="#ffffff" stop-opacity=".18"/>
+            <stop offset="1" stop-color="#ffffff" stop-opacity=".05"/>
+          </linearGradient>
+          <linearGradient id="lidG" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#000000"/>
+            <stop offset=".45" stop-color="#262220"/>
+            <stop offset=".55" stop-color="#31302e"/>
+            <stop offset="1" stop-color="#050505"/>
+          </linearGradient>
+          <linearGradient id="goldG" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#9c7c1c"/>
+            <stop offset=".5" stop-color="#f2dd8e"/>
+            <stop offset="1" stop-color="#c9a227"/>
+          </linearGradient>
+          <radialGradient id="nutsG" cx=".4" cy=".35" r=".9">
+            <stop offset="0" stop-color="#c99a56"/>
+            <stop offset=".55" stop-color="#9a6f38"/>
+            <stop offset="1" stop-color="#5e3f1e"/>
+          </radialGradient>
+        </defs>
+        <!-- jar body -->
+        <path d="M75 118 q-10 6 -10 22 v210 q0 26 26 26 h118 q26 0 26 -26 v-210 q0 -16 -10 -22 z" fill="#141210" stroke="rgba(255,255,255,.16)" stroke-width="1.5"/>
+        <!-- nuts fill -->
+        <path d="M78 160 h144 v186 q0 20 -20 20 h-104 q-20 0 -20 -20 z" fill="url(#nutsG)"/>
+        <g opacity=".85">
+          <ellipse cx="105" cy="190" rx="14" ry="10" fill="#caa668" transform="rotate(-18 105 190)"/>
+          <ellipse cx="140" cy="205" rx="13" ry="9" fill="#b98d4e" transform="rotate(24 140 205)"/>
+          <ellipse cx="180" cy="188" rx="14" ry="10" fill="#d7b276" transform="rotate(-8 180 188)"/>
+          <ellipse cx="205" cy="215" rx="11" ry="8" fill="#a97e42" transform="rotate(30 205 215)"/>
+          <ellipse cx="112" cy="228" rx="12" ry="9" fill="#8f6a34" transform="rotate(12 112 228)"/>
+          <ellipse cx="158" cy="240" rx="14" ry="10" fill="#c49a58" transform="rotate(-26 158 240)"/>
+          <ellipse cx="196" cy="255" rx="12" ry="9" fill="#b28744" transform="rotate(8 196 255)"/>
+          <ellipse cx="120" cy="268" rx="13" ry="9" fill="#d0a964" transform="rotate(-14 120 268)"/>
+          <ellipse cx="165" cy="285" rx="12" ry="9" fill="#996f36" transform="rotate(20 165 285)"/>
+          <ellipse cx="200" cy="300" rx="13" ry="9" fill="#c69c58" transform="rotate(-22 200 300)"/>
+          <ellipse cx="112" cy="308" rx="14" ry="10" fill="#ba8f4c" transform="rotate(16 112 308)"/>
+          <ellipse cx="152" cy="326" rx="13" ry="9" fill="#a87c3e" transform="rotate(-10 152 326)"/>
+          <ellipse cx="192" cy="340" rx="12" ry="8" fill="#d2ab66" transform="rotate(26 192 340)"/>
+          <ellipse cx="120" cy="345" rx="12" ry="8" fill="#8f6830" transform="rotate(-20 120 345)"/>
+        </g>
+        <!-- glass overlay -->
+        <path d="M75 118 q-10 6 -10 22 v210 q0 26 26 26 h118 q26 0 26 -26 v-210 q0 -16 -10 -22 z" fill="url(#glassG)"/>
+        <!-- glass highlight -->
+        <path d="M88 140 q-6 4 -6 16 v190 q0 6 2 10" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="5" stroke-linecap="round" opacity=".5"/>
+        <path d="M214 145 v195" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="3" stroke-linecap="round"/>
+        <!-- lid -->
+        <rect x="68" y="86" width="164" height="38" rx="8" fill="url(#lidG)" stroke="#3a3632" stroke-width="1"/>
+        <rect x="68" y="118" width="164" height="6" rx="3" fill="#0a0a0a"/>
+        <g opacity=".9"><rect x="68" y="92" width="164" height="2" fill="rgba(255,255,255,.08)"/></g>
+        <!-- gold logo medallion on lid -->
+        <circle cx="150" cy="105" r="13" fill="none" stroke="url(#goldG)" stroke-width="1.6"/>
+        <text x="150" y="110" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="url(#goldG)" font-style="italic">N</text>
+        <!-- gold band -->
+        <rect x="66" y="122" width="168" height="2.5" fill="url(#goldG)"/>
+        <!-- gold label on glass -->
+        <rect x="103" y="222" width="94" height="52" rx="2" fill="#0c0b09" stroke="url(#goldG)" stroke-width="1.4"/>
+        <text x="150" y="245" text-anchor="middle" font-family="Georgia,serif" font-size="13" letter-spacing="4" fill="url(#goldG)">NUVORA</text>
+        <line x1="116" y1="253" x2="184" y2="253" stroke="url(#goldG)" stroke-width=".8"/>
+        <text x="150" y="266" text-anchor="middle" font-family="Georgia,serif" font-size="6.4" letter-spacing="2.4" fill="#cdbf9a">PREMIUM NUT COLLECTION</text>
+      </svg>
+    </div>
+  </div>
+  <div class="scroll-hint">Ontdek</div>
+</section>
+
+<!-- ============================ CONCEPT ============================ -->
+<section id="concept">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow center">Het concept</span>
+      <h2>Van een notenpotje naar <em class="gold-text">een merkbeleving.</em></h2>
+      <p>Nuvora combineert hoogwaardige ingrediënten met exclusief design. Elk potje wordt volledig gepersonaliseerd zodat jouw bedrijf een blijvende indruk maakt bij klanten, medewerkers of gasten.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <h3>Kies jouw premium notenmix</h3>
+        <p>Selecteer een zorgvuldig samengestelde combinatie van kwaliteitsnoten, geroosterd en gekruid tot in de perfectie.</p>
+      </div>
+      <div class="step reveal d1">
+        <h3>Personaliseer jouw design</h3>
+        <p>Voeg jouw bedrijfslogo toe op het deksel en kies jouw gewenste stijl — van subtiel goud tot volledig op maat.</p>
+      </div>
+      <div class="step reveal d2">
+        <h3>Wij creëren jouw unieke potjes</h3>
+        <p>Elke bestelling wordt professioneel afgewerkt, met zorg verpakt en stipt geleverd.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><span></span><i>✦</i><span></span></div>
+
+<!-- ============================ PRODUCT ============================ -->
+<section class="product" id="product">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow center">De collectie</span>
+      <h2>Premium nuts, <em class="gold-text">crafted with perfection.</em></h2>
+    </div>
+    <div class="product-grid">
+      <div class="product-visual reveal">
+        <div class="pedestal"></div>
+        <svg viewBox="0 0 300 400" aria-label="Signature Nut Jar">
+          <path d="M75 118 q-10 6 -10 22 v210 q0 26 26 26 h118 q26 0 26 -26 v-210 q0 -16 -10 -22 z" fill="#141210" stroke="rgba(255,255,255,.16)" stroke-width="1.5"/>
+          <path d="M78 160 h144 v186 q0 20 -20 20 h-104 q-20 0 -20 -20 z" fill="url(#nutsG)"/>
+          <g opacity=".85">
+            <ellipse cx="110" cy="195" rx="14" ry="10" fill="#caa668" transform="rotate(-18 110 195)"/>
+            <ellipse cx="150" cy="210" rx="13" ry="9" fill="#b98d4e" transform="rotate(24 150 210)"/>
+            <ellipse cx="188" cy="192" rx="14" ry="10" fill="#d7b276" transform="rotate(-8 188 192)"/>
+            <ellipse cx="118" cy="235" rx="12" ry="9" fill="#8f6a34" transform="rotate(12 118 235)"/>
+            <ellipse cx="165" cy="248" rx="14" ry="10" fill="#c49a58" transform="rotate(-26 165 248)"/>
+            <ellipse cx="200" cy="262" rx="12" ry="9" fill="#b28744" transform="rotate(8 200 262)"/>
+            <ellipse cx="124" cy="278" rx="13" ry="9" fill="#d0a964" transform="rotate(-14 124 278)"/>
+            <ellipse cx="170" cy="295" rx="12" ry="9" fill="#996f36" transform="rotate(20 170 295)"/>
+            <ellipse cx="130" cy="318" rx="14" ry="10" fill="#ba8f4c" transform="rotate(16 130 318)"/>
+            <ellipse cx="178" cy="335" rx="13" ry="9" fill="#a87c3e" transform="rotate(-10 178 335)"/>
+          </g>
+          <path d="M75 118 q-10 6 -10 22 v210 q0 26 26 26 h118 q26 0 26 -26 v-210 q0 -16 -10 -22 z" fill="url(#glassG)"/>
+          <path d="M88 140 q-6 4 -6 16 v190 q0 6 2 10" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="5" stroke-linecap="round" opacity=".5"/>
+          <rect x="68" y="86" width="164" height="38" rx="8" fill="url(#lidG)" stroke="#3a3632" stroke-width="1"/>
+          <rect x="68" y="118" width="164" height="6" rx="3" fill="#0a0a0a"/>
+          <circle cx="150" cy="105" r="13" fill="none" stroke="url(#goldG)" stroke-width="1.6"/>
+          <text x="150" y="110" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="url(#goldG)" font-style="italic">N</text>
+          <rect x="66" y="122" width="168" height="2.5" fill="url(#goldG)"/>
+          <rect x="103" y="222" width="94" height="52" rx="2" fill="#0c0b09" stroke="url(#goldG)" stroke-width="1.4"/>
+          <text x="150" y="245" text-anchor="middle" font-family="Georgia,serif" font-size="13" letter-spacing="4" fill="url(#goldG)">NUVORA</text>
+          <line x1="116" y1="253" x2="184" y2="253" stroke="url(#goldG)" stroke-width=".8"/>
+          <text x="150" y="266" text-anchor="middle" font-family="Georgia,serif" font-size="6.4" letter-spacing="2.4" fill="#cdbf9a">SIGNATURE NUT JAR</text>
+        </svg>
+      </div>
+      <div class="product-info reveal d1">
+        <span class="eyebrow">Signature Nut Jar</span>
+        <h3>Een elegant glazen potje, gevuld met zorgvuldig geselecteerde noten.</h3>
+        <ul class="nut-list">
+          <li>Amandelen</li>
+          <li>Cashewnoten</li>
+          <li>Pistachenoten</li>
+          <li>Walnoten</li>
+          <li>Hazelnoten</li>
+          <li>Premium geroosterde mixen</li>
+        </ul>
+        <ul class="features">
+          <li><span class="tick">✓</span> Premium kwaliteit</li>
+          <li><span class="tick">✓</span> Luxe glazen verpakking</li>
+          <li><span class="tick">✓</span> Gepersonaliseerd met jouw logo</li>
+          <li><span class="tick">✓</span> Perfect als relatiegeschenk</li>
+          <li><span class="tick">✓</span> Geschikt voor grote evenementen</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ PERSONALISATIE ============================ -->
+<section class="perso" id="personalisatie">
+  <div class="container perso-grid">
+    <div class="perso-copy reveal">
+      <span class="eyebrow">Personalisatie</span>
+      <h2>Your logo. Your identity. <em class="gold-text">Your jar.</em></h2>
+      <p>Een sterk merk zit in de details. Daarom maken wij elk potje uniek met jouw eigen branding. Van kleine exclusieve geschenken tot duizenden gepersonaliseerde potjes voor grote bedrijven.</p>
+      <ul class="perso-points">
+        <li>Zwart deksel met gouden logo</li>
+        <li>Gouden reliëfdruk</li>
+        <li>Minimalistische bedrijfsbranding</li>
+        <li>Luxe labels, volledig op maat</li>
+      </ul>
+      <a href="#bestellen" class="btn btn-outline">Bekijk alle mogelijkheden</a>
+    </div>
+    <div class="configurator reveal d1">
+      <h3>Ontwerp jouw preview</h3>
+      <div class="config-preview">
+        <svg viewBox="0 0 300 400" aria-label="Interactieve potje-preview">
+          <path d="M75 118 q-10 6 -10 22 v210 q0 26 26 26 h118 q26 0 26 -26 v-210 q0 -16 -10 -22 z" fill="#141210" stroke="rgba(255,255,255,.16)" stroke-width="1.5"/>
+          <path d="M78 160 h144 v186 q0 20 -20 20 h-104 q-20 0 -20 -20 z" fill="url(#nutsG)"/>
+          <path d="M75 118 q-10 6 -10 22 v210 q0 26 26 26 h118 q26 0 26 -26 v-210 q0 -16 -10 -22 z" fill="url(#glassG)"/>
+          <path d="M88 140 q-6 4 -6 16 v190 q0 6 2 10" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="5" stroke-linecap="round" opacity=".5"/>
+          <rect class="pv-lid" x="68" y="86" width="164" height="38" rx="8" fill="url(#lidG)" stroke="#3a3632" stroke-width="1"/>
+          <rect x="68" y="118" width="164" height="6" rx="3" fill="#0a0a0a"/>
+          <rect x="66" y="122" width="168" height="2.5" fill="url(#goldG)"/>
+          <!-- logo slot on lid -->
+          <g class="pv-logo-fallback">
+            <circle cx="150" cy="105" r="13" fill="none" stroke="url(#goldG)" stroke-width="1.6"/>
+            <text x="150" y="110" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="url(#goldG)" font-style="italic">N</text>
+          </g>
+          <image class="pv-logo-img" x="128" y="90" width="44" height="30" preserveAspectRatio="xMidYMid meet" style="display:none"/>
+          <!-- label -->
+          <rect class="pv-label" x="103" y="222" width="94" height="52" rx="2" fill="#0c0b09" stroke="url(#goldG)" stroke-width="1.4"/>
+          <text class="pv-label-text" x="150" y="245" text-anchor="middle" font-family="Georgia,serif" font-size="12" letter-spacing="3" fill="url(#goldG)">JOUW MERK</text>
+          <line x1="116" y1="253" x2="184" y2="253" stroke="url(#goldG)" stroke-width=".8"/>
+          <text class="pv-label-sub" x="150" y="266" text-anchor="middle" font-family="Georgia,serif" font-size="6.4" letter-spacing="2.4" fill="#cdbf9a">PREMIUM NUT COLLECTION</text>
+        </svg>
+      </div>
+      <div class="config-row">
+        <span class="config-label">1 · Upload jouw logo</span>
+        <label class="upload-zone">
+          <input type="file" class="logo-input" accept="image/*">
+          <span class="upload-text">Klik hier om jouw logo te uploaden (PNG, JPG, SVG)</span>
+        </label>
+      </div>
+      <div class="config-row">
+        <span class="config-label">2 · Kies jouw dekselstijl</span>
+        <div class="chip-row lid-chips">
+          <button class="chip active" data-lid="black">Zwart mat</button>
+          <button class="chip" data-lid="gold">Goud</button>
+          <button class="chip" data-lid="beige">Beige</button>
+        </div>
+      </div>
+      <div class="config-row" style="margin-bottom:.4rem">
+        <span class="config-label">3 · Bekijk jouw preview hierboven</span>
+        <a href="#bestellen" class="btn btn-gold" style="width:100%;margin-top:.4rem">Vraag jouw offerte aan</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><span></span><i>✦</i><span></span></div>
+
+<!-- ============================ BEDRIJVEN ============================ -->
+<section class="b2b" id="bedrijven">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow center">Voor bedrijven</span>
+      <h2>Een geschenk dat <em class="gold-text">jouw merk vertegenwoordigt.</em></h2>
+      <p>Voor bedrijven, marketingteams, evenementenorganisatoren, hotels, restaurants en premium winkels.</p>
+    </div>
+    <div class="card-grid">
+      <div class="lux-card reveal">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+          <rect x="3" y="7" width="18" height="13" rx="1"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18"/>
+        </svg>
+        <h3>Zakelijke geschenkboxen</h3>
+        <p>Luxe eindejaarsgeschenken en relatiegeschenken die jouw partners en klanten écht onthouden. Volledig in jouw huisstijl.</p>
+      </div>
+      <div class="lux-card reveal d1">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+          <path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/>
+        </svg>
+        <h3>Hotels & horeca</h3>
+        <p>Verwelkom gasten met een verfijnd detail op de kamer of aan tafel. Premium presentatie, perfect afgestemd op jouw interieur.</p>
+      </div>
+      <div class="lux-card reveal d2">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+          <circle cx="12" cy="8" r="5"/><path d="M9 12.5 7 21l5-3 5 3-2-8.5"/>
+        </svg>
+        <h3>VIP & marketing</h3>
+        <p>Van vergadertafels met luxe potjes tot VIP-events en productlanceringen: een tastbaar merkmoment met blijvende impact.</p>
+      </div>
+    </div>
+    <div class="quote-band reveal">
+      <p>“Geef geen standaard relatiegeschenk. Geef iets dat kwaliteit, aandacht en exclusiviteit uitstraalt.”</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ EVENEMENTEN ============================ -->
+<section id="evenementen">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow center">Evenementen</span>
+      <h2>Maak elk moment <em class="gold-text">memorabel.</em></h2>
+      <p>Een gepersonaliseerd notenpotje als stijlvolle herinnering voor jouw gasten.</p>
+    </div>
+    <div class="event-tags reveal d1">
+      <span>Bruiloften</span>
+      <span>Bedrijfsfeesten</span>
+      <span>Congressen</span>
+      <span>VIP-events</span>
+      <span>Productlanceringen</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><span></span><i>✦</i><span></span></div>
+
+<!-- ============================ VERPAKKING ============================ -->
+<section id="verpakking">
+  <div class="container packaging-grid">
+    <div class="pack-visual reveal">
+      <!-- luxury box render -->
+      <svg viewBox="0 0 460 340" aria-label="Luxe zwarte geschenkdoos met gouden details">
+        <defs>
+          <linearGradient id="boxTop" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#211d18"/><stop offset="1" stop-color="#0d0b09"/>
+          </linearGradient>
+          <linearGradient id="boxSide" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#171310"/><stop offset="1" stop-color="#080706"/>
+          </linearGradient>
+        </defs>
+        <!-- shadow -->
+        <ellipse cx="230" cy="308" rx="190" ry="20" fill="rgba(0,0,0,.55)"/>
+        <!-- box base -->
+        <path d="M60 190 L230 250 L400 190 L400 260 L230 320 L60 260 Z" fill="url(#boxSide)" stroke="#2c2620" stroke-width="1"/>
+        <path d="M230 250 v70" stroke="#000" stroke-width="1"/>
+        <!-- lid -->
+        <path d="M45 165 L230 105 L415 165 L230 228 Z" fill="url(#boxTop)" stroke="#33291c" stroke-width="1"/>
+        <path d="M45 165 L230 228 L230 250 L60 190 Z" fill="#0b0908"/>
+        <path d="M415 165 L230 228 L230 250 L400 190 Z" fill="#0f0c0a"/>
+        <!-- gold ribbon -->
+        <path d="M150 131 L330 190 L310 197 L130 138 Z" fill="url(#goldG)" opacity=".92"/>
+        <path d="M310 139 L138 194 L156 201 L330 146 Z" fill="url(#goldG)" opacity=".8"/>
+        <!-- gold emblem -->
+        <ellipse cx="230" cy="167" rx="26" ry="14" fill="none" stroke="url(#goldG)" stroke-width="1.6"/>
+        <text x="230" y="172" text-anchor="middle" font-family="Georgia,serif" font-size="12" letter-spacing="2" fill="url(#goldG)">N</text>
+        <!-- small jars beside the box -->
+        <g transform="translate(20,196) scale(.34)">
+          <path d="M75 118 q-10 6 -10 22 v210 q0 26 26 26 h118 q26 0 26 -26 v-210 q0 -16 -10 -22 z" fill="#141210" stroke="rgba(255,255,255,.16)" stroke-width="2"/>
+          <path d="M78 160 h144 v186 q0 20 -20 20 h-104 q-20 0 -20 -20 z" fill="url(#nutsG)"/>
+          <path d="M75 118 q-10 6 -10 22 v210 q0 26 26 26 h118 q26 0 26 -26 v-210 q0 -16 -10 -22 z" fill="url(#glassG)"/>
+          <rect x="68" y="86" width="164" height="38" rx="8" fill="url(#lidG)"/>
+          <rect x="66" y="122" width="168" height="4" fill="url(#goldG)"/>
+        </g>
+        <g transform="translate(346,200) scale(.3)">
+          <path d="M75 118 q-10 6 -10 22 v210 q0 26 26 26 h118 q26 0 26 -26 v-210 q0 -16 -10 -22 z" fill="#141210" stroke="rgba(255,255,255,.16)" stroke-width="2"/>
+          <path d="M78 160 h144 v186 q0 20 -20 20 h-104 q-20 0 -20 -20 z" fill="url(#nutsG)"/>
+          <path d="M75 118 q-10 6 -10 22 v210 q0 26 26 26 h118 q26 0 26 -26 v-210 q0 -16 -10 -22 z" fill="url(#glassG)"/>
+          <rect x="68" y="86" width="164" height="38" rx="8" fill="url(#lidG)"/>
+          <rect x="66" y="122" width="168" height="4" fill="url(#goldG)"/>
+        </g>
+      </svg>
+    </div>
+    <div class="reveal d1">
+      <span class="eyebrow">Luxe verpakking</span>
+      <h2 style="font-size:clamp(2rem,3.4vw,2.9rem);margin-bottom:1.2rem">Designed to <em class="gold-text">impress.</em></h2>
+      <p style="color:var(--text-dim)">De verpakking is onderdeel van de ervaring. Elk detail wordt ontworpen om kwaliteit uit te stralen.</p>
+      <ul class="pack-list">
+        <li><strong>Zwarte luxe geschenkdozen</strong> Stevig, mat zwart karton met een fluweelzachte afwerking.</li>
+        <li><strong>Gouden details</strong> Folie-accenten, gouden linten en een verzegeld embleem.</li>
+        <li><strong>Elegante presentatie</strong> Elk potje rust in een op maat gesneden inleg.</li>
+        <li><strong>Premium unboxing ervaring</strong> Het openen van de doos is een moment op zich.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ DUURZAAMHEID ============================ -->
+<section class="sustain" id="duurzaamheid">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow center">Bewust premium</span>
+      <h2>Luxe met respect voor morgen.</h2>
+      <p>Kwaliteit die lang meegaat, in verpakkingen die een tweede leven verdienen.</p>
+    </div>
+    <div class="sustain-grid">
+      <div class="sustain-card reveal">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+          <path d="M9 3h6M10 3v4l-4.5 8A4 4 0 0 0 9 21h6a4 4 0 0 0 3.5-6L14 7V3"/>
+        </svg>
+        <h3>Herbruikbaar glas</h3>
+        <p>Onze glazen potjes zijn gemaakt om te blijven — als voorraadpot, vaas of bewaardoos.</p>
+      </div>
+      <div class="sustain-card reveal d1">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+          <path d="M12 21C7 17 4 13.5 4 9.5A4.5 4.5 0 0 1 8.5 5c1.5 0 2.8.7 3.5 1.8A4.2 4.2 0 0 1 15.5 5 4.5 4.5 0 0 1 20 9.5c0 4-3 7.5-8 11.5z"/>
+        </svg>
+        <h3>Duurzame keuzes</h3>
+        <p>Verpakkingen uit verantwoorde materialen, geselecteerd met dezelfde zorg als onze noten.</p>
+      </div>
+      <div class="sustain-card reveal d2">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+          <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/>
+        </svg>
+        <h3>Lange houdbaarheid</h3>
+        <p>Kwalitatieve producten met een lange houdbaarheid: genieten zonder verspilling.</p>
+      </div>
+      <div class="sustain-card reveal d3">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+          <path d="M4 12a8 8 0 0 1 14-5M20 12a8 8 0 0 1-14 5"/><path d="M18 3v4h-4M6 21v-4h4"/>
+        </svg>
+        <h3>Minder wegwerp</h3>
+        <p>Minder wegwerpverpakkingen door bewust ontwerp en herbruikbare materialen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ OVER ONS ============================ -->
+<section class="about" id="overons">
+  <div class="container">
+    <div class="section-head reveal" style="margin-bottom:2.6rem">
+      <span class="eyebrow center">Over ons</span>
+      <h2>More than nuts. <em class="gold-text">A premium experience.</em></h2>
+    </div>
+    <p class="story reveal d1">Nuvora ontstond vanuit het idee dat kleine momenten groot kunnen worden wanneer ze met aandacht worden gemaakt. Door hoogwaardige ingrediënten te combineren met exclusief design creëren wij gepersonaliseerde geschenken die mensen onthouden.</p>
+  </div>
+</section>
+
+<div class="divider"><span></span><i>✦</i><span></span></div>
+
+<!-- ============================ BESTELLEN ============================ -->
+<section class="order" id="bestellen">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow center">Bestellen</span>
+      <h2>Stel jouw <em class="gold-text">potje</em> samen.</h2>
+      <p>Configureer jouw potje, upload jouw logo en ontvang binnen 24 uur een offerte op maat.</p>
+    </div>
+    <div class="order-panel reveal d1">
+      <div class="order-left">
+        <svg viewBox="0 0 300 400" aria-label="Configurator preview">
+          <path d="M75 118 q-10 6 -10 22 v210 q0 26 26 26 h118 q26 0 26 -26 v-210 q0 -16 -10 -22 z" fill="#141210" stroke="rgba(255,255,255,.16)" stroke-width="1.5"/>
+          <path d="M78 160 h144 v186 q0 20 -20 20 h-104 q-20 0 -20 -20 z" fill="url(#nutsG)"/>
+          <path d="M75 118 q-10 6 -10 22 v210 q0 26 26 26 h118 q26 0 26 -26 v-210 q0 -16 -10 -22 z" fill="url(#glassG)"/>
+          <path d="M88 140 q-6 4 -6 16 v190 q0 6 2 10" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="5" stroke-linecap="round" opacity=".5"/>
+          <rect class="pv-lid" x="68" y="86" width="164" height="38" rx="8" fill="url(#lidG)" stroke="#3a3632" stroke-width="1"/>
+          <rect x="68" y="118" width="164" height="6" rx="3" fill="#0a0a0a"/>
+          <rect x="66" y="122" width="168" height="2.5" fill="url(#goldG)"/>
+          <g class="pv-logo-fallback">
+            <circle cx="150" cy="105" r="13" fill="none" stroke="url(#goldG)" stroke-width="1.6"/>
+            <text x="150" y="110" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="url(#goldG)" font-style="italic">N</text>
+          </g>
+          <image class="pv-logo-img" x="128" y="90" width="44" height="30" preserveAspectRatio="xMidYMid meet" style="display:none"/>
+          <rect class="pv-label" x="103" y="222" width="94" height="52" rx="2" fill="#0c0b09" stroke="url(#goldG)" stroke-width="1.4"/>
+          <text class="pv-label-text" x="150" y="245" text-anchor="middle" font-family="Georgia,serif" font-size="12" letter-spacing="3" fill="url(#goldG)">JOUW MERK</text>
+          <line x1="116" y1="253" x2="184" y2="253" stroke="url(#goldG)" stroke-width=".8"/>
+          <text x="150" y="266" text-anchor="middle" font-family="Georgia,serif" font-size="6.4" letter-spacing="2.4" fill="#cdbf9a">PREMIUM NUT COLLECTION</text>
+        </svg>
+        <div class="order-summary">
+          <div class="row"><span>Formaat</span><b id="sumSize">Classic · 250 g</b></div>
+          <div class="row"><span>Notenmix</span><b id="sumMix">Signature Mix</b></div>
+          <div class="row"><span>Branding</span><b id="sumBrand">Zwart & goud</b></div>
+          <div class="row"><span>Aantal</span><b id="sumQty">100 stuks</b></div>
+        </div>
+      </div>
+      <div class="order-right">
+        <h3>Premium configurator</h3>
+        <form id="quoteForm" novalidate>
+          <div class="field">
+            <span class="config-label">Formaat potje</span>
+            <div class="chip-row" data-sum="sumSize">
+              <button type="button" class="chip" data-value="Petite · 120 g">Petite · 120 g</button>
+              <button type="button" class="chip active" data-value="Classic · 250 g">Classic · 250 g</button>
+              <button type="button" class="chip" data-value="Grande · 500 g">Grande · 500 g</button>
+            </div>
+          </div>
+          <div class="field">
+            <span class="config-label">Notenmix</span>
+            <div class="chip-row" data-sum="sumMix">
+              <button type="button" class="chip active" data-value="Signature Mix">Signature Mix</button>
+              <button type="button" class="chip" data-value="Royal Roast">Royal Roast</button>
+              <button type="button" class="chip" data-value="Sweet & Salt">Sweet & Salt</button>
+              <button type="button" class="chip" data-value="Pure Origin">Pure Origin</button>
+            </div>
+          </div>
+          <div class="field">
+            <span class="config-label">Branding</span>
+            <div class="chip-row" data-sum="sumBrand" id="brandChips">
+              <button type="button" class="chip active" data-value="Zwart & goud" data-lid="black">Zwart & goud</button>
+              <button type="button" class="chip" data-value="Goud" data-lid="gold">Goud</button>
+              <button type="button" class="chip" data-value="Beige & goud" data-lid="beige">Beige & goud</button>
+            </div>
+          </div>
+          <div class="field">
+            <span class="config-label">Hoeveelheid</span>
+            <div class="chip-row qty-row" data-sum="sumQty">
+              <button type="button" class="chip" data-value="25 stuks">25</button>
+              <button type="button" class="chip active" data-value="100 stuks">100</button>
+              <button type="button" class="chip" data-value="500 stuks">500</button>
+              <button type="button" class="chip" data-value="1000+ stuks">1000+</button>
+            </div>
+          </div>
+          <div class="field">
+            <span class="config-label">Upload bedrijfslogo</span>
+            <label class="upload-zone">
+              <input type="file" class="logo-input" accept="image/*">
+              <span class="upload-text">Sleep jouw logo hierheen of klik om te uploaden</span>
+            </label>
+          </div>
+          <div class="field">
+            <span class="config-label">Bedrijfsnaam</span>
+            <input type="text" id="companyName" placeholder="Jouw bedrijf" autocomplete="organization">
+          </div>
+          <div class="field">
+            <span class="config-label">E-mailadres</span>
+            <input type="email" id="email" placeholder="naam@bedrijf.be" autocomplete="email">
+          </div>
+          <div class="field">
+            <span class="config-label">Bericht (optioneel)</span>
+            <textarea rows="3" placeholder="Vertel ons over jouw project of evenement…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-gold" style="width:100%">Vraag een offerte aan</button>
+          <p class="form-note">Wij beantwoorden elke aanvraag persoonlijk binnen 24 uur.</p>
+          <div class="form-success" id="formSuccess">✦ Dank je wel. Jouw aanvraag is goed ontvangen — ons team neemt binnen 24 uur contact met je op.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FOOTER ============================ -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#top" class="logo"><span class="gold-text">NUVORA</span><small>PREMIUM NUTS</small></a>
+        <p>Exclusieve, gepersonaliseerde notenpotjes voor bedrijven, horeca, evenementen en bijzondere geschenken.</p>
+      </div>
+      <div>
+        <h4>Ontdek</h4>
+        <ul>
+          <li><a href="#concept">Het concept</a></li>
+          <li><a href="#product">De collectie</a></li>
+          <li><a href="#personalisatie">Personalisatie</a></li>
+          <li><a href="#verpakking">Verpakking</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Voor wie</h4>
+        <ul>
+          <li><a href="#bedrijven">Bedrijven</a></li>
+          <li><a href="#evenementen">Evenementen</a></li>
+          <li><a href="#bedrijven">Hotels & horeca</a></li>
+          <li><a href="#bedrijven">Premium winkels</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@nuvora.be">hello@nuvora.be</a></li>
+          <li><a href="#bestellen">Offerte aanvragen</a></li>
+          <li><a href="#overons">Over ons</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Nuvora. Alle rechten voorbehouden.</span>
+      <span>Premium taste · Your brand · Your story</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---------- header state ---------- */
+const header=document.getElementById('header');
+addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>40),{passive:true});
+
+/* ---------- mobile nav ---------- */
+const burger=document.getElementById('burger'),navlist=document.getElementById('navlist');
+burger.addEventListener('click',()=>{
+  burger.classList.toggle('open');navlist.classList.toggle('open');
+});
+navlist.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  burger.classList.remove('open');navlist.classList.remove('open');
+}));
+
+/* ---------- reveal on scroll ---------- */
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ---------- lid styles (shared by both previews) ---------- */
+const LIDS={
+  black:{fill:'url(#lidG)',stroke:'#3a3632'},
+  gold:{fill:'url(#goldG)',stroke:'#9c7c1c'},
+  beige:{fill:'#e7dac0',stroke:'#c9b892'}
+};
+function setLid(style){
+  const l=LIDS[style]||LIDS.black;
+  document.querySelectorAll('.pv-lid').forEach(r=>{
+    r.setAttribute('fill',l.fill);r.setAttribute('stroke',l.stroke);
+  });
+}
+
+/* ---------- logo upload → both previews ---------- */
+document.querySelectorAll('.logo-input').forEach(input=>{
+  input.addEventListener('change',()=>{
+    const file=input.files&&input.files[0];
+    if(!file)return;
+    const reader=new FileReader();
+    reader.onload=e=>{
+      document.querySelectorAll('.pv-logo-img').forEach(img=>{
+        img.setAttribute('href',e.target.result);img.style.display='block';
+      });
+      document.querySelectorAll('.pv-logo-fallback').forEach(g=>g.style.display='none');
+      document.querySelectorAll('.upload-text').forEach(t=>t.textContent='✦ '+file.name+' — logo toegevoegd aan jouw preview');
+    };
+    reader.readAsDataURL(file);
+  });
+});
+
+/* ---------- company name → label text ---------- */
+const companyInput=document.getElementById('companyName');
+if(companyInput){
+  companyInput.addEventListener('input',()=>{
+    const v=companyInput.value.trim().toUpperCase();
+    document.querySelectorAll('.pv-label-text').forEach(t=>{t.textContent=v||'JOUW MERK'});
+  });
+}
+
+/* ---------- chip groups (configurator + personalisatie) ---------- */
+document.querySelectorAll('.chip-row').forEach(row=>{
+  row.querySelectorAll('.chip').forEach(chip=>{
+    chip.addEventListener('click',()=>{
+      row.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+      chip.classList.add('active');
+      if(chip.dataset.lid)setLid(chip.dataset.lid);
+      const sumId=row.dataset.sum;
+      if(sumId&&chip.dataset.value){
+        const el=document.getElementById(sumId);
+        if(el)el.textContent=chip.dataset.value;
+      }
+    });
+  });
+});
+
+/* ---------- offerte form ---------- */
+document.getElementById('quoteForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const email=document.getElementById('email');
+  if(!email.value||!/.+@.+\..+/.test(email.value)){
+    email.style.borderColor='#b8642f';email.focus();return;
+  }
+  email.style.borderColor='';
+  document.getElementById('formSuccess').classList.add('show');
+  e.target.querySelector('[type=submit]').textContent='Aanvraag verzonden ✦';
+});
+</script>
+</body>
+</html>
